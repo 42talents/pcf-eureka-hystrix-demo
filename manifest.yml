@@ -1,0 +1,20 @@
+services:
+- service-registry
+instances: 1
+
+applications:
+- name: customer-app
+  memory: 1024M
+  path: ./customer-app/target/customer-app-0.0.1-SNAPSHOT.jar
+  routes:
+  - route: customer-app-42talents.cfapps.io
+  services:
+  - circuit-breaker
+
+- name: customer-service
+  memory: 1024M
+  path: ./customer-service/target/customer-service-0.0.1-SNAPSHOT.jar
+  routes:
+  - route: customer-service-42talents.cfapps.io
+  services:
+  - mysql-service
