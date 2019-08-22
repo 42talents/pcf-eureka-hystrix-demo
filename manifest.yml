@@ -10,6 +10,7 @@ applications:
   - route: customer-app-42talents.cfapps.io
   services:
   - circuit-breaker
+  - service-registry
 
 - name: customer-service
   memory: 1024M
@@ -18,3 +19,4 @@ applications:
   - route: customer-service-42talents.cfapps.io
   services:
   - mysql-service
+  - service-registry
